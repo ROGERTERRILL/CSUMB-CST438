@@ -1,5 +1,6 @@
 package com.example.cst438assignment1;
 
+import java.util.Date;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
@@ -17,12 +18,18 @@ public class Movie {
 
   private String nameOfPerson;
 
-  public Movie() {
+  private String time;
 
+  public Movie() {
+    movieTitle = null;
+    movieRating = null;
+    nameOfPerson = null;
+    time = null;
   }
 
   public Movie(long id, String movieTitle, Integer movieRating, String nameOfPerson) {
-    super();
+    this.id = id;
+    this.time = null;
     this.movieTitle = movieTitle;
     this.movieRating = movieRating;
     this.nameOfPerson = nameOfPerson;
@@ -60,4 +67,11 @@ public class Movie {
     this.nameOfPerson = nameOfPerson;
   }
 
+  public String getTime() {
+    return time;
+  }
+
+  public void setTime(String time) {
+    this.time = time;
+  }
 }
