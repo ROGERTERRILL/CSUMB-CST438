@@ -1,9 +1,12 @@
 package com.example.cst438assignment1;
 
-import java.util.Date;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.validation.constraints.Max;
+import javax.validation.constraints.Min;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
 
 @Entity
 public class Movie {
@@ -12,10 +15,17 @@ public class Movie {
   @GeneratedValue
   private long id;
 
+  @NotNull
+  @Size(min = 3, max = 25)
   private String movieTitle;
 
+  @NotNull
+  @Min(1)
+  @Max(5)
   private Integer movieRating;
 
+  @NotNull
+  @Size(min = 3, max = 25)
   private String nameOfPerson;
 
   private String time;
