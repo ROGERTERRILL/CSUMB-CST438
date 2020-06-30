@@ -19,11 +19,11 @@ public class Movie {
   private String movieTitle;
   
   @NotNull
-  @Size(min=3,max=25)
+  @Max(10)
   private Integer movieRating;
   
   @NotNull
-  @Max(10)
+  @Size(min=3,max=25)
   private String nameOfPerson;
 
   public Movie() {
