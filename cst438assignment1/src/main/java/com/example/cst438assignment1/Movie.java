@@ -3,6 +3,10 @@ package com.example.cst438assignment1;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.validation.constraints.Max;
+import javax.validation.constraints.Min;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
 
 @Entity
 public class Movie {
@@ -11,18 +15,31 @@ public class Movie {
   @GeneratedValue
   private long id;
 
+  @NotNull
+  @Size(min = 3, max = 25)
   private String movieTitle;
 
+  @NotNull
+  @Min(1)
+  @Max(5)
   private Integer movieRating;
 
+  @NotNull
+  @Size(min = 3, max = 25)
   private String nameOfPerson;
 
-  public Movie() {
+  private String time;
 
+  public Movie() {
+    movieTitle = null;
+    movieRating = null;
+    nameOfPerson = null;
+    time = null;
   }
 
   public Movie(long id, String movieTitle, Integer movieRating, String nameOfPerson) {
-    super();
+    this.id = id;
+    this.time = null;
     this.movieTitle = movieTitle;
     this.movieRating = movieRating;
     this.nameOfPerson = nameOfPerson;
@@ -60,4 +77,11 @@ public class Movie {
     this.nameOfPerson = nameOfPerson;
   }
 
+  public String getTime() {
+    return time;
+  }
+
+  public void setTime(String time) {
+    this.time = time;
+  }
 }

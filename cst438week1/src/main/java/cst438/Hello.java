@@ -32,8 +32,7 @@ public class Hello {
   @PostMapping("/person")
   public String processPersonForm(@Valid Person person,
       BindingResult result,
-      Model model) {
-    if (result.hasErrors()) {
+      Model model) { if (result.hasErrors()) {
       return "person_form";
     }
 
